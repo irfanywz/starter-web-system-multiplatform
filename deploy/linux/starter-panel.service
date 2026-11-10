@@ -1,0 +1,17 @@
+# /etc/systemd/system/starter-panel.service
+# Sebelum dipakai: buat user khusus, salin project ke /opt/starter-panel, lalu:
+#   sudo systemctl daemon-reload && sudo systemctl enable --now starter-panel
+[Unit]
+Description=Starter Web System Panel
+After=network.target
+
+[Service]
+Type=simple
+User=panel
+WorkingDirectory=/opt/starter-panel
+ExecStart=/usr/bin/node --no-warnings /opt/starter-panel/src/server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

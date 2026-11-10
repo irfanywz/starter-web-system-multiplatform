@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Starter Panel</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main id="login" class="hidden card narrow">
+    <h1>Starter Panel</h1>
+    <form id="loginForm">
+      <label>Username <input name="username" autocomplete="username" required></label>
+      <label>Sandi <input name="password" type="password" autocomplete="current-password" required></label>
+      <button type="submit">Masuk</button>
+      <p class="error" id="loginError"></p>
+    </form>
+  </main>
+
+  <div id="app" class="hidden">
+    <header>
+      <strong>Starter Panel</strong>
+      <nav id="nav"></nav>
+      <span class="spacer"></span>
+      <span id="who" class="muted"></span>
+      <button id="logoutBtn" class="ghost">Keluar</button>
+    </header>
+    <div id="notice" class="notice hidden"></div>
+
+    <section id="tab-sistem" class="tab hidden">
+      <div class="card"><h2>Info sistem</h2><table id="sysTable"></table></div>
+    </section>
+
+    <section id="tab-terminal" class="tab hidden">
+      <div class="grid-terminal">
+        <div class="card">
+          <h2>Jalankan perintah</h2>
+          <form id="jobForm">
+            <div class="row">
+              <label>Shell <select name="shell" id="shellSelect"></select></label>
+              <label>Batas (detik) <input name="timeoutSec" type="number" min="1" value="600"></label>
+            </div>
+            <label>Folder kerja <input name="cwd" placeholder="kosong = folder default"></label>
+            <label>Perintah <textarea name="command" rows="3" required spellcheck="false" placeholder="contoh: dir / ls -la / ipconfig"></textarea></label>
+            <div class="row">
+              <button type="submit">Jalankan</button>
+              <button type="button" id="stopBtn" class="danger hidden">Hentikan</button>
+            </div>
+          </form>
+          <h3>Riwayat</h3>
+          <ul id="jobList" class="joblist"></ul>
+        </div>
+        <div class="card">
+          <h2>Output <span id="jobMeta" class="muted"></span></h2>
+          <pre id="output" class="output">Belum ada job dipilih.</pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-pengguna" class="tab hidden">
+      <div class="card">
+        <h2>Tambah akun</h2>
+        <form id="userForm" class="row">
+          <label>Username <input name="username" required></label>
+          <label>Sandi (kosong = acak) <input name="password" type="text"></label>
+          <label>Role <select name="role"><option value="user">user</option><option value="admin">admin</option></select></label>
+          <button type="submit">Buat</button>
+        </form>
+      </div>
+      <div class="card">
+        <h2>Daftar akun</h2>
+        <table id="userTable"></table>
+      </div>
+    </section>
+
+    <section id="tab-akun" class="tab hidden">
+      <div class="card narrow">
+        <h2>Ganti sandi</h2>
+        <form id="pwForm">
+          <label>Sandi lama <input name="old" type="password" required></label>
+          <label>Sandi baru (min 8) <input name="new" type="password" minlength="8" required></label>
+          <button type="submit">Simpan</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

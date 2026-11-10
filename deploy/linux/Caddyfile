@@ -1,0 +1,4 @@
+# HTTPS otomatis. Ganti domain dengan domain kamu (record A harus mengarah ke IP VPS).
+panel.example.com {
+    reverse_proxy 127.0.0.1:3000
+}

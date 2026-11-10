@@ -1,0 +1,18 @@
+{
+  "name": "starter-web-system-multiplatform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Starter panel web untuk menjalankan perintah sistem (Windows, Linux, VPS, RDP)",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "setup": "node --no-warnings scripts/setup.js",
+    "start": "node --no-warnings src/server.js",
+    "doctor": "node --no-warnings src/doctor.js",
+    "admin": "node --no-warnings src/admin.js",
+    "test": "node --no-warnings --test tests/unit.test.js"
+  },
+  "license": "UNLICENSED"
+}
